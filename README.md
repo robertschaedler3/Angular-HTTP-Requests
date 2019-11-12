@@ -21,6 +21,7 @@ export class AppComponent {
 
     constructor (public api: ApiService) { }
 
+    // other stuff...
 }
 ```
 From this point calls can be made to the endpoint by passing a path to `api.getData('/some/path')` either in the component or directly in the html.
