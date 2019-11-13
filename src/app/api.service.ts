@@ -10,20 +10,19 @@ import * as _ from 'lodash';
 })
 export class ApiService {
 
-  private baseUrl = '<API-BASE>';
+  private baseURL = '<API-BASE>';
+  private proxyURL = 'http://localhost:5001';
 
   data$: Observable<any>;
 
-  constructor(private http: HttpClient) {
-    this.getData();
+  constructor (private http: HttpClient) {
+    this.get("/proxy", true);
   }
 
-  private preloadData() {
-    // some pre-loading operations
-  }
-
-  public getData(path?: String | "") {
-    return this.data$ = this.http.get<string[]>(this.baseUrl + path).pipe(
+  public get(path?: string | "", proxy: boolean = false) {
+    let url = (proxy) ? this.proxyURL : this.baseURL;
+    let endpoint = (path === undefined) ? "" : path;
+    return this.data$ = this.http.get(url + endpoint).pipe(
       map(data => _.values(data)),
       tap(console.log),
     );
