@@ -1,6 +1,7 @@
+<h2>DATA:</h2>
+<button (click)="getData()">Refresh</button>
+<hr>
 <div *ngIf="api.data$ | async as data">
-  <h1>DATA:</h1>
-  <hr>
   <pre>
     {{data | json}}
   </pre>

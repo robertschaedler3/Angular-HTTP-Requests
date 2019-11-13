@@ -10,6 +10,10 @@ import { ApiService } from './api.service';
 export class AppComponent {
   title = 'Angular-HTTP-Requests';
 
-  constructor (public api: ApiService) { }
+  constructor(public api: ApiService) { }
+  
+  public getData() {
+    this.api.get('/proxy', true);
+  }
 
 }
