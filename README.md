@@ -24,7 +24,8 @@ export class AppComponent {
     // other stuff...
 }
 ```
-From this point calls can be made to the endpoint by passing a path to `api.getData('/some/path')` either in the component or directly in the html.
+From this point calls can be made to the endpoint by passing a path to `api.get('/some/path')` and/or forwarding the path to a proxy server that returns the response from the specificed endpoint of the given path.
+
 
 ### Component 
 ```typescript
@@ -42,7 +43,7 @@ export class AppComponent {
     // other stuff ...
 
     public update(path?: String | "") {
-        this.api.getData(path);
+        this.api.get(path);
     }
 }
 ```
