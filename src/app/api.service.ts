@@ -15,9 +15,7 @@ export class ApiService {
 
   data$: Observable<any>;
 
-  constructor (private http: HttpClient) {
-    this.get("/proxy", true);
-  }
+  constructor (private http: HttpClient) { }
 
   public get(path?: string | "", proxy: boolean = false) {
     let url = (proxy) ? this.proxyURL : this.baseURL;
